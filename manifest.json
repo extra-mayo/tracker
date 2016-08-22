@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+
+  "name": "tracker",
+  "description": "Keeps track of shows",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "Beyonce-50.png",
+    "default_popup": "popup.html",
+    "default_title": "Track shows"
+  },
+
+  "options_page": "options.html",
+  "permissions": [
+    "storage"
+  ],
+  "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'"
+}

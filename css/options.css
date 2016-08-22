@@ -1,0 +1,22 @@
+#title{
+    font-size: 50px;
+    position:relative;
+    top:10px;
+    padding-left: 30px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    text-align: left;
+}
+
+#showInfo{
+    font-size:15px;
+    letter-spacing: 2px;
+}
+
+.inputField{
+    padding-right:20px;
+    clear: both;
+}
+
+#fillIn{
+}

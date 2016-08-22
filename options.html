@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tracker</title>
+    <link rel="stylesheet" type="text/css" href="css/options.css">
+</head>
+<body>
+<div class="fillIn">
+    <h3 id="title">Add shows</h3>
+
+    <form name="information" onsubmit="return saveShow()">
+        <fieldset id = showInfo>
+            <ul id="listInfo">
+               <li> Show: <input type="text" id= "showName" name="showName"></li>
+                <li>Day: <input type="text" id="day" name="day"></li>
+                <li>Season: <input type="text" id="season" name="season"></li>
+                <li>Episode: <input type="text" id="episode" name="episode"></li>
+            </ul>
+        </fieldset>
+    </form>
+
+
+    <br/>
+
+    <button class="submit">Save</button>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="options.js"></script>
+
+</body>
+</html>

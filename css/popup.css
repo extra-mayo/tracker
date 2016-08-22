@@ -1,0 +1,51 @@
+body {
+    min-width: 300px;
+    position: relative;
+    vertical-align:middle;
+    font-family: Helvetica Neue, Arial, sans-serif;
+}
+
+#categoryRow{
+    font-size: 2em;
+}
+
+.showRow{
+    font-size: 15px;
+}
+
+#nothingRow{
+    font-size: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width:100%
+}
+th {
+    height: 30px;
+    background-color: #b3cccc;
+    color: white;
+    padding-right: 20px;
+}
+
+tr:hover {
+    background-color: #e0e0d1;
+}
+
+td, th{
+    padding-left: 15px;
+    padding-bottom:5px;
+    padding-top: 5px;
+    text-align: left;
+    border: 1px solid #94b8b8;
+
+}
+
+
+#title{
+    font-size: 30px;
+    position:relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
