@@ -6,8 +6,8 @@
 TO-DO:
 -Sections
 -Link to DL
--Remove
--Forward/Backward 
+-Option to remove
+-Forward/Backward a day
  */
 
 //Get weekday
