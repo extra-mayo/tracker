@@ -2,7 +2,13 @@
  * Created by Jason on 8/19/2016.
  */
 
-
+/*
+TO-DO:
+-Sections
+-Link to DL
+-Remove
+-Forward/Backward 
+ */
 
 //Get weekday
 var weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
