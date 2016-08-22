@@ -5,6 +5,13 @@
 //initiate new array variables for each weekdays
 var Sunday = [], Monday = [], Tuesday = [], Wednesday = [], Thursday = [], Friday = [], Saturday = [];
 
+/*
+TO-DO:
+-Add link to DL
+-Remove button???
+ */
+
+
 //store the weekdays into an array
 var weekDays = [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday];
 
