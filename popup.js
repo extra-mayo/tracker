@@ -67,7 +67,7 @@ function loadShow(){
     //Get schedule from storage
     chrome.storage.sync.get("schedule", (function(results) {
         //if schedule doesn't exist, then output "You have nothing listed"
-        if (typeof results.schedule == "undefined"){
+        if (results.schedule[date.getDay()].length == 0){
             console.log("is it empty?:", typeof results.schedule == "undefined");
             table.append($("<tr id='nothingRow'>" +
                 "<th>" + "You have nothing listed" + "</th>" +
@@ -153,8 +153,6 @@ $(document).ready(function() {
             removeShow(day, orderNum);
         }
         // alert(event.target.id);
-        window.location.reload();
-        writeDay();
     });
 });
 
@@ -178,6 +176,8 @@ function removeShow(day, orderNum){
 
         });
     }));
+    window.location.reload();
+    writeDay();
 }
 
 

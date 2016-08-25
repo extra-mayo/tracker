@@ -37,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="popup.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="popup.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/popup.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="591">
-              <caret line="156" column="19" selection-start-line="156" selection-start-column="19" selection-end-line="156" selection-end-column="19" />
+            <state relative-caret-position="-520">
+              <caret line="76" column="28" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -60,19 +60,22 @@
       <file leaf-file-name="options.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/options.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
+            <state relative-caret-position="555">
               <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="options.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="options.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/options.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="62" column="71" selection-start-line="62" selection-start-column="71" selection-end-line="62" selection-end-column="71" />
-              <folding />
+            <state relative-caret-position="280">
+              <caret line="56" column="7" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="7" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="n#!!block;n#show#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -80,7 +83,7 @@
       <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../public_html/wireframe/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1250">
+            <state relative-caret-position="25">
               <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="20" />
               <folding />
             </state>
@@ -113,8 +116,8 @@
         <option value="$PROJECT_DIR$/options.html" />
         <option value="$PROJECT_DIR$/css/popup.css" />
         <option value="$PROJECT_DIR$/popup.html" />
-        <option value="$PROJECT_DIR$/popup.js" />
         <option value="$PROJECT_DIR$/options.js" />
+        <option value="$PROJECT_DIR$/popup.js" />
       </list>
     </option>
   </component>
@@ -125,9 +128,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="625" />
-    <option name="y" value="10" />
-    <option name="width" value="1340" />
+    <option name="x" value="655" />
+    <option name="width" value="1157" />
     <option name="height" value="1090" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -183,7 +185,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Exercise Files/Chap14/Accordion_finished" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Extension EX/stylizr" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
@@ -269,7 +271,7 @@
       <workItem from="1471642785059" duration="2432000" />
       <workItem from="1471645947585" duration="37193000" />
       <workItem from="1471830006550" duration="9293000" />
-      <workItem from="1472076505789" duration="7784000" />
+      <workItem from="1472076505789" duration="10067000" />
     </task>
     <task id="LOCAL-00001" summary="Updated TO-DO for Options.js">
       <created>1471830270185</created>
@@ -292,17 +294,24 @@
       <option name="project" value="LOCAL" />
       <updated>1472084196240</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="TODO: Fix the poorly implemented array storing issue.">
+      <created>1472090829964</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1472090829964</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56702000" />
+    <option name="totallyTimeSpent" value="58985000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="625" y="10" width="1340" height="1090" extended-state="0" />
+    <frame x="655" y="0" width="1157" height="1090" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16691957" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1938326" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -354,7 +363,8 @@
     <MESSAGE value="Updated TO-DO for Options.js" />
     <MESSAGE value="Added remove section; TO-DO add in functionality" />
     <MESSAGE value="Added in remove functionality; needs work on chrome storage's API to save the updated show list" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added in remove functionality; needs work on chrome storage's API to save the updated show list" />
+    <MESSAGE value="TODO: Fix the poorly implemented array storing issue." />
+    <option name="LAST_COMMIT_MESSAGE" value="TODO: Fix the poorly implemented array storing issue." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -399,7 +409,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1700">
           <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!block;n#show#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -447,7 +460,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!block;n#show#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -548,14 +564,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../public_html/wireframe/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1250">
-          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/popup.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -564,9 +572,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../public_html/wireframe/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/options.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
+        <state relative-caret-position="555">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="40" />
           <folding />
         </state>
@@ -580,18 +596,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/popup.js">
+    <entry file="file://$PROJECT_DIR$/options.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="591">
-          <caret line="156" column="19" selection-start-line="156" selection-start-column="19" selection-end-line="156" selection-end-column="19" />
-          <folding />
+        <state relative-caret-position="280">
+          <caret line="56" column="7" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="7" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!block;n#show#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/options.js">
+    <entry file="file://$PROJECT_DIR$/popup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="62" column="71" selection-start-line="62" selection-start-column="71" selection-end-line="62" selection-end-column="71" />
+        <state relative-caret-position="-520">
+          <caret line="76" column="28" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="28" />
           <folding />
         </state>
       </provider>

@@ -2,18 +2,29 @@
  * Created by Jason on 8/19/2016.
  */
 
-//initiate new array variables for each weekdays
-var Sunday = [], Monday = [], Tuesday = [], Wednesday = [], Thursday = [], Friday = [], Saturday = [];
-
 /*
-TO-DO:
--Add link to DL
--Remove button???
+ TO-DO:
+ -Add link to DL
+ -Remove button???
  */
 
+//initiate new array variables for each weekdays
+var Sunday = [],
+    Monday = [],
+    Tuesday = [],
+    Wednesday = [],
+    Thursday = [],
+    Friday = [],
+    Saturday = [];
 
 //store the weekdays into an array
 var weekDays = [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday];
+
+//store the array of weekdays into chrome storage
+chrome.storage.sync.set({"schedule": weekDays}, function() {
+    // Notify that we saved.
+    console.log("initial empty weekday saved into storage");
+});
 
 function show (show, day, season, episode) {
     this.nameOfShow = show;
@@ -74,9 +85,19 @@ function saveShow(){
             console.log("invalid day! (-1)");
         }
         else {
-            weekDays[convertDayToNumber(newShow.day)].push(newShow);
-            console.log("day is converted to " + convertDayToNumber(newShow.day));
-            console.log( weekDays[convertDayToNumber(newShow.day)]);
+            chrome.storage.sync.get("schedule", (function(results){
+                results.schedule[convertDayToNumber(newShow.day)].push(newShow);
+                console.log("pushed show into storage", newShow)
+                chrome.storage.sync.set({"schedule": results.schedule}, function() {
+                    // Notify that we saved.
+                    console.log('Settings saved');
+
+                });
+            }));
+            //
+            // weekDays[convertDayToNumber(newShow.day)].push(newShow);
+            // console.log("day is converted to " + convertDayToNumber(newShow.day));
+            // console.log( weekDays[convertDayToNumber(newShow.day)]);
         }
 
     }
