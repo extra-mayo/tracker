@@ -78,6 +78,7 @@ function loadShow(){
             //and create a table.
             console.log("??");
             var todaysShow = results.schedule[date.getDay()];
+            console.log("day ###", date.getDay());
             //if there's nothing in today's schedule
             table.append($("<tr id='categoryRow'>" +
                 "<th>" + "List of Shows" + "</th>" +
@@ -93,10 +94,16 @@ function loadShow(){
             for (i = 0; i < todaysShow.length; i++) {
                 table.append($("<tr class='showRow'>" +
                     "<td>" + todaysShow[i].nameOfShow + " " + seasonLabel(todaysShow[i]) + "</td>" +
-                    "<td>" + "<a href='#'>" + "TODO" + "</a></td>" +
-                    "<td>" + "<a href='#'" + "class='" + todaysShow[i].day + "' id='" + i + "'>(-)</a></td>" +
-//empty statement:  "<td>" + "<a href='#"+ "'>(-)</a></td>" +
+                    "<td>" + "<a href='# class='deleteShow'>" + "TODO" + "</a></td>" +
+                    //    <button class="submit">Save</button>
+                    //var submitButton = document.querySelector('button.submit');
+                    //submitButton.addEventListener('click', saveShow);
+
+                // "<td>" + "<a href='#'" + "class='" + todaysShow[i].day + "' id='" + i + "'>(-)</a></td>" +
+// empty statement:
+                    "<td>" + "<a href='#' id='" + "deleteShow" + i + todaysShow[i].day + "'>(-)</a></td>" +
                     "</tr>"));
+                    console.log("deleteShow" + i);
             }
         }
     }));
@@ -105,24 +112,73 @@ function loadShow(){
     return table;
 }
 
-$('a[href$="#"]').click(function() {
-    console.log("clicked");
-    removeShow(this);
+function convertDayToNumber(day){
+    var result;
+    var sunday = /^sunday/i,
+        monday = /^monday/i,
+        tuesday = /^tuesday/i,
+        wednesday = /^wednesday/i,
+        thursday = /^thursday/i,
+        friday = /^friday/i,
+        saturday = /^saturday/i;
+
+    switch (true){
+        case sunday.test(day): result = "0"; break;
+        case monday.test(day): result = "1"; break;
+        case tuesday.test(day): result = "2"; break;
+        case wednesday.test(day): result = "3"; break;
+        case thursday.test(day): result = "4"; break;
+        case friday.test(day): result = "5"; break;
+        case saturday.test(day): result = "6"; break;
+        default: console.log("no such day!");
+            result = false;
+    }
+    return result;
+
+}
+
+
+
+$(document).ready(function() {
+    $("a").click(function (event) {
+        var showID = (event.target.id);
+        var check = "deleteShow";
+        if (showID.indexOf(check) !== 1){
+            var orderNum = showID.substring(10, 11);
+            console.log(orderNum);
+            var weekday = showID.substring(11);
+            console.log(weekday);
+            var day = convertDayToNumber(weekday);
+            console.log("line 152", day);
+            removeShow(day, orderNum);
+        }
+        // alert(event.target.id);
+    });
 });
+
+
 
 //to remove show, you'll need the Day and the order number. Note: Order # starts from 0.
 //For example, On Wednesday, you'd have Suits, Scream Queen, OUAT.
 //You would pass in Wednesday, and #2 to remove Scream Queen.
 
 //try name??
-function removeShow(element){
+function removeShow(day, orderNum){
     chrome.storage.sync.get("schedule", (function(results){
-        var day = $(element).attr("class");
-        var orderNum = $(element).attr("id");
         var todaysShow = results.schedule[day];
+        console.log("results.schedule (should be same as weekDay)", results.schedule);
+        console.log("before removing: ",todaysShow);
         todaysShow.splice(orderNum, 1);
+        console.log("Afte removing: ", todaysShow);
+        chrome.storage.sync.set({"schedule": results.schedule}, function() {
+            // Notify that we saved.
+            console.log('Settings saved');
+
+        });
     }));
+    window.location.reload();
     writeDay();
+
 }
 
 
