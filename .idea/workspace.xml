@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3d0df373-e5eb-4098-ad1e-aa087035667b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/options.js" afterPath="$PROJECT_DIR$/options.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popup.js" afterPath="$PROJECT_DIR$/popup.js" />
     </list>
     <ignored path="tracker.iws" />
@@ -36,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="popup.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="popup.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/popup.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="177" column="8" selection-start-line="177" selection-start-column="8" selection-end-line="177" selection-end-column="8" />
+            <state relative-caret-position="591">
+              <caret line="156" column="19" selection-start-line="156" selection-start-column="19" selection-end-line="156" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -66,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="options.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="options.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/options.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="80" column="45" selection-start-line="80" selection-start-column="45" selection-end-line="80" selection-end-column="45" />
+            <state relative-caret-position="192">
+              <caret line="62" column="71" selection-start-line="62" selection-start-column="71" selection-end-line="62" selection-end-column="71" />
               <folding />
             </state>
           </provider>
@@ -111,9 +112,9 @@
         <option value="$PROJECT_DIR$/css/options.css" />
         <option value="$PROJECT_DIR$/options.html" />
         <option value="$PROJECT_DIR$/css/popup.css" />
-        <option value="$PROJECT_DIR$/options.js" />
         <option value="$PROJECT_DIR$/popup.html" />
         <option value="$PROJECT_DIR$/popup.js" />
+        <option value="$PROJECT_DIR$/options.js" />
       </list>
     </option>
   </component>
@@ -124,7 +125,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="477" />
+    <option name="x" value="625" />
+    <option name="y" value="10" />
     <option name="width" value="1340" />
     <option name="height" value="1090" />
   </component>
@@ -267,7 +269,7 @@
       <workItem from="1471642785059" duration="2432000" />
       <workItem from="1471645947585" duration="37193000" />
       <workItem from="1471830006550" duration="9293000" />
-      <workItem from="1472076505789" duration="4758000" />
+      <workItem from="1472076505789" duration="7784000" />
     </task>
     <task id="LOCAL-00001" summary="Updated TO-DO for Options.js">
       <created>1471830270185</created>
@@ -283,14 +285,21 @@
       <option name="project" value="LOCAL" />
       <updated>1472076628418</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added in remove functionality; needs work on chrome storage's API to save the updated show list">
+      <created>1472084196240</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1472084196240</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53676000" />
+    <option name="totallyTimeSpent" value="56702000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="477" y="0" width="1340" height="1090" extended-state="0" />
+    <frame x="625" y="10" width="1340" height="1090" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16691957" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -344,7 +353,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updated TO-DO for Options.js" />
     <MESSAGE value="Added remove section; TO-DO add in functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added remove section; TO-DO add in functionality" />
+    <MESSAGE value="Added in remove functionality; needs work on chrome storage's API to save the updated show list" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added in remove functionality; needs work on chrome storage's API to save the updated show list" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -570,18 +580,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/options.js">
+    <entry file="file://$PROJECT_DIR$/popup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="80" column="45" selection-start-line="80" selection-start-column="45" selection-end-line="80" selection-end-column="45" />
+        <state relative-caret-position="591">
+          <caret line="156" column="19" selection-start-line="156" selection-start-column="19" selection-end-line="156" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/popup.js">
+    <entry file="file://$PROJECT_DIR$/options.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="177" column="8" selection-start-line="177" selection-start-column="8" selection-end-line="177" selection-end-column="8" />
+        <state relative-caret-position="192">
+          <caret line="62" column="71" selection-start-line="62" selection-start-column="71" selection-end-line="62" selection-end-column="71" />
           <folding />
         </state>
       </provider>

@@ -153,6 +153,8 @@ $(document).ready(function() {
             removeShow(day, orderNum);
         }
         // alert(event.target.id);
+        window.location.reload();
+        writeDay();
     });
 });
 
@@ -169,16 +171,13 @@ function removeShow(day, orderNum){
         console.log("results.schedule (should be same as weekDay)", results.schedule);
         console.log("before removing: ",todaysShow);
         todaysShow.splice(orderNum, 1);
-        console.log("Afte removing: ", todaysShow);
+        console.log("After removing: ", todaysShow);
         chrome.storage.sync.set({"schedule": results.schedule}, function() {
             // Notify that we saved.
             console.log('Settings saved');
 
         });
     }));
-    window.location.reload();
-    writeDay();
-
 }
 
 
