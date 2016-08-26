@@ -10,6 +10,11 @@ TO-DO:
 -Forward/Backward a day
  */
 
+
+
+
+
+
 //Get weekday
 var weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 var date = new Date();
@@ -64,11 +69,12 @@ function getFullWeekdayName(){
 function loadShow(){
     var table = $('<table>');
 
-    //Get schedule from storage
-    chrome.storage.sync.get("schedule", (function(results) {
+    //Get schedule from storage; use null to check if key exists.
+    chrome.storage.sync.get(null, (function(results) {
         //if schedule doesn't exist, then output "You have nothing listed"
-        if (results.schedule[date.getDay()].length == 0){
-            console.log("is it empty?:", typeof results.schedule == "undefined");
+        var allKeys = Object.keys(results);
+        if (allKeys.length == 0 || results.schedule[date.getDay()].length == 0){
+            console.log("is it empty / results = object???:", typeof results == "object");
             table.append($("<tr id='nothingRow'>" +
                 "<th>" + "You have nothing listed" + "</th>" +
             "</tr>"));
@@ -83,7 +89,7 @@ function loadShow(){
             table.append($("<tr id='categoryRow'>" +
                 "<th>" + "List of Shows" + "</th>" +
                 "<th>" + "link" + "</th>" +
-                "<th>" + "Delete" + "</th>" +
+                "<th>" + "Options" + "</th>" +
                 "</tr>"));
             //for debugging
             console.log("week schedule: ", results)

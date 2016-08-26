@@ -8,23 +8,27 @@
  -Remove button???
  */
 
+
+
 //initiate new array variables for each weekdays
-var Sunday = [],
-    Monday = [],
-    Tuesday = [],
-    Wednesday = [],
-    Thursday = [],
-    Friday = [],
-    Saturday = [];
+    var Sunday = [],
+        Monday = [],
+        Tuesday = [],
+        Wednesday = [],
+        Thursday = [],
+        Friday = [],
+        Saturday = [];
 
 //store the weekdays into an array
-var weekDays = [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday];
+    var weekDays = [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday];
 
 //store the array of weekdays into chrome storage
-chrome.storage.sync.set({"schedule": weekDays}, function() {
-    // Notify that we saved.
-    console.log("initial empty weekday saved into storage");
-});
+    chrome.storage.sync.set({"schedule": weekDays}, function() {
+        // Notify that we saved.
+        console.log("initial empty weekday saved into storage");
+    });
+
+
 
 function show (show, day, season, episode) {
     this.nameOfShow = show;
@@ -69,9 +73,6 @@ function convertDayToNumber(day){
 
 }
 
-// FIX THE CHROME STORAGE + WEEKDAYS ARRAY!! OTHERWISE, EVERYTIME YOU ADD
-//IN THINGS INTO WEEKDAYS, AND REMOVE THEM LATER, AND ADD A NEW SHOW AFTERWARD,
-//YOU'RE GOING TO HAVE WEEKDAYS WITH ALL THE SHOWS PREVIOUSLY REMOVED!!
 function saveShow(){
     //store user's new show (or their input) into variable newShow
     //TO-DO: implement more attributes
@@ -90,7 +91,7 @@ function saveShow(){
                 console.log("pushed show into storage", newShow)
                 chrome.storage.sync.set({"schedule": results.schedule}, function() {
                     // Notify that we saved.
-                    console.log('Settings saved');
+                    alert('Settings saved');
 
                 });
             }));
@@ -101,12 +102,12 @@ function saveShow(){
         }
 
     }
-    console.log("weekdays", weekDays);
-    chrome.storage.sync.set({"schedule": weekDays}, function() {
-        // Notify that we saved.
-        alert('Settings saved');
-        console.log(newShow);
-    });
+    //
+    // chrome.storage.sync.set({"schedule": weekDays}, function() {
+    //     // Notify that we saved.
+    //     alert('Settings saved');
+    //     console.log(newShow);
+    // });
 }
 var submitButton = document.querySelector('button.submit');
 submitButton.addEventListener('click', saveShow);
