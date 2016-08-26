@@ -183,7 +183,7 @@ function removeShow(day, orderNum){
         });
     }));
     window.location.reload();
-    writeDay();
+
 }
 
 

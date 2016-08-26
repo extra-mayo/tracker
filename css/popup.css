@@ -17,6 +17,10 @@ body {
     font-size: 20px;
 }
 
+#next{
+    margin-top: -14px;
+    margin-left: 300px;
+}
 table {
     border-collapse: collapse;
     width:100%
