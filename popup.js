@@ -10,11 +10,6 @@ TO-DO:
 -Forward/Backward a day
  */
 
-
-
-
-
-
 //Get weekday
 var weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 var date = new Date();
@@ -29,13 +24,6 @@ function getFullWeekdayName(){
     return weekDay;
 }
 
-function getPreviousDay(){
-
-}
-
-function getNextDay(){
-
-}
 
 function seasonLabel(todaysShow){
     var seasonName = "(";
@@ -87,8 +75,8 @@ function loadShow(){
             console.log("day ###", date.getDay());
             //if there's nothing in today's schedule
             table.append($("<tr id='categoryRow'>" +
-                "<th>" + "List of Shows" + "</th>" +
-                "<th>" + "link" + "</th>" +
+                "<th>" + "Shows" + "</th>" +
+                "<th>" + "Link" + "</th>" +
                 "<th>" + "Options" + "</th>" +
                 "</tr>"));
             //for debugging
@@ -145,25 +133,6 @@ function convertDayToNumber(day){
 
 
 
-$(document).ready(function() {
-    $("a").click(function (event) {
-        var showID = (event.target.id);
-        var check = "deleteShow";
-        if (showID.indexOf(check) !== 1){
-            var orderNum = showID.substring(10, 11);
-            console.log(orderNum);
-            var weekday = showID.substring(11);
-            console.log(weekday);
-            var day = convertDayToNumber(weekday);
-            console.log("line 152", day);
-            removeShow(day, orderNum);
-        }
-        // alert(event.target.id);
-    });
-});
-
-
-
 //to remove show, you'll need the Day and the order number. Note: Order # starts from 0.
 //For example, On Wednesday, you'd have Suits, Scream Queen, OUAT.
 //You would pass in Wednesday, and #2 to remove Scream Queen.
@@ -186,6 +155,23 @@ function removeShow(day, orderNum){
 
 }
 
+$(document).ready(function() {
+    $("a").click(function (event) {
+        var showID = (event.target.id);
+        var check = "deleteShow";
+        if (showID.indexOf(check) !== 1){
+            var orderNum = showID.substring(10, 11);
+            console.log(orderNum);
+            var weekday = showID.substring(11);
+            console.log(weekday);
+            var day = convertDayToNumber(weekday);
+            console.log("line 152", day);
+            removeShow(day, orderNum);
+        }
+        // alert(event.target.id);
+    });
+});
+
 
 function writeDay() {
     $('#day').empty();
@@ -195,6 +181,49 @@ function writeDay() {
 
 }
 
+function getPreviousDay(){
+    if (date.getDay() - 1 < 0){
+        day = weekdays[6];
+    }
+    else{
+        day = weekdays[date.getDay() - 1];
+    }
+    date.setDate(date.getDate()-1);
+    console.log(date);
+    writeDay();
+}
+
+function getNextDay(){
+    if (date.getDay() + 1 > 6){
+        day = weekdays[0];
+    }
+    else{
+        day = weekdays[date.getDay() + 1];
+    }
+    date.setDate(date.getDate()+1);
+    console.log(date);
+    writeDay();
+}
+
+function getHome(){
+    var newDate = new Date();
+    day = weekdays[newDate.getDay()];
+    date.setDate(newDate.getDate());
+    // date.getMonth() + 1
+    date.setMonth(newDate.getMonth());
+    console.log(date);
+    writeDay();
+}
+
+var homeButton = document.querySelector('button.home');
+homeButton.addEventListener('click', getHome);
+
+
+var prevButton = document.querySelector('button.previous');
+prevButton.addEventListener('click', getPreviousDay);
+
+var nextButton = document.querySelector('button.next');
+nextButton.addEventListener('click', getNextDay);
 
 document.addEventListener('DOMContentLoaded', function () {
     writeDay();

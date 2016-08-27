@@ -18,9 +18,24 @@ body {
 }
 
 #next{
-    margin-top: -14px;
-    margin-left: 300px;
+
+    margin-left: 7em;
 }
+
+#home{
+
+    margin-left: 7em;
+}
+
+button{
+    background-color: #b3cccc;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
 table {
     border-collapse: collapse;
     width:100%
@@ -45,9 +60,15 @@ td, th{
 
 }
 
+#buttons{
+    white-space: nowrap;
+
+}
 
 #title{
-    font-size: 30px;
+
+    white-space: nowrap;
+    font-size: 25px;
     position:relative;
     text-transform: uppercase;
     letter-spacing: 2px;
