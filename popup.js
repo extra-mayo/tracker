@@ -10,12 +10,15 @@
  -Forward/Backward a day
  */
 
-//Get weekday
+//Initiated an array filled with 7 arrays that corresponds to each days of the week.
 var weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 var date = new Date();
 var day = weekdays[date.getDay()];
 
-//Header of the popup
+/*
+    Function that returns the header (or the date) of the popup.
+    EX: Saturday (8/27/2016)
+ */
 function getFullWeekdayName(){
     var weekDay = "<h1 id='title'>"
         + day
@@ -24,7 +27,9 @@ function getFullWeekdayName(){
     return weekDay;
 }
 
-
+/*
+    Function that returns string containing the season and the episode of the show in this format: (SxxExx)
+ */
 function seasonLabel(todaysShow){
     var seasonName = "(";
     if (todaysShow.season < 10){
@@ -46,12 +51,15 @@ function seasonLabel(todaysShow){
 
 }
 
+/*
+    Returns a table that contains show's information, link, and options.
+ */
 function loadShow(){
     var table = $('<table>');
 
-    //Get schedule from storage; use null to check if key exists.
+    //Get schedule from storage; use null to retrieve all the keys and check if specific key exists.
     chrome.storage.sync.get(null, (function(results) {
-        //if schedule doesn't exist, then output "You have nothing listed"
+        //if schedule doesn't exist or if there aren't any shows in a given day, then output "You have nothing listed" into table content.
         var allKeys = Object.keys(results);
         if (allKeys.length == 0 || results.schedule[date.getDay()].length == 0){
             console.log("is it empty / results = object???:", typeof results == "object");
@@ -60,8 +68,7 @@ function loadShow(){
                 "</tr>"));
         }
         else {
-            //otherwise, retrieve all the show inside the array belonging to today's date
-            //and create a table.
+            //otherwise, retrieve all the shows inside the array belonging to today's date and create a table with info.
             console.log("??");
             var todaysShow = results.schedule[date.getDay()];
             console.log("day ###", date.getDay());
@@ -76,14 +83,13 @@ function loadShow(){
             console.log("todays schedule:", todaysShow);
             console.log("todays show total length: ", todaysShow.length);
 
-            //this writes in the show's season and episodes next to the show in the table
+            //this writes in the show's season and episodes next to the show's name in the table; EX: Suits (S01E01)
             for (i = 0; i < todaysShow.length; i++) {
                 table.append($("<tr class='showRow'>" +
                     "<td>" + todaysShow[i].nameOfShow + " " + seasonLabel(todaysShow[i]) + "</td>" +
-                    "<td>" + "<a href='# class='deleteShow'>" + "TODO" + "</a></td>" +
-                    "<td>" + "<a href='#' id='" + "deleteShow" + i + todaysShow[i].day + "'>(-)</a></td>" +
+                    "<td>" + "<a href='# class='link'>" + "TODO" + "</a></td>" +
+                    "<td>" + "<button class='optionButton' id='" + "deleteShow" + i + todaysShow[i].day + "'>delete</button></td>" +
                     "</tr>"));
-                console.log("deleteShow" + i);
             }
         }
     }));
@@ -92,6 +98,10 @@ function loadShow(){
     return table;
 }
 
+/*
+    Returns the number associated with days.
+    Sundays starts with 0 with Saturday being 6.
+ */
 function convertDayToNumber(day){
     var result;
     var sunday = /^sunday/i,
@@ -119,11 +129,12 @@ function convertDayToNumber(day){
 
 
 
-//to remove show, you'll need the Day and the order number. Note: Order # starts from 0.
-//For example, On Wednesday, you'd have Suits, Scream Queen, OUAT.
-//You would pass in Wednesday, and #2 to remove Scream Queen.
+/*
+    to remove show, you'll need the Day and the order number. Note: order # starts from 0.
+    For example, On Wednesday, you'd have Suits, Scream Queen, OUAT.
+You would pass in Wednesday, and #2 to remove Scream Queen.
 
-//try name??
+*/
 function removeShow(day, orderNum){
     chrome.storage.sync.get("schedule", (function(results){
         var todaysShow = results.schedule[day];
@@ -141,8 +152,54 @@ function removeShow(day, orderNum){
 
 }
 
-$(document).ready(function() {
-    $("a").click(function (event) {
+function writeDay() {
+    $('#day').empty();
+    $('#day').append(getFullWeekdayName());
+    console.log(getFullWeekdayName());
+    $('#day').append(loadShow());
+
+}
+
+
+//Writes in the popup content when document is loaded.
+$(function(){
+
+    $("#home").click(function(){
+        var newDate = new Date();
+        day = weekdays[newDate.getDay()];
+        date.setDate(newDate.getDate());
+        // date.getMonth() + 1
+        date.setMonth(newDate.getMonth());
+        console.log(date);
+        writeDay();
+    });
+
+    $("#prev").click(function(){
+        if (date.getDay() - 1 < 0){
+            day = weekdays[6];
+        }
+        else{
+            day = weekdays[date.getDay() - 1];
+        }
+        date.setDate(date.getDate()-1);
+        console.log(date);
+        writeDay();
+    });
+
+    $("#next").click(function(){
+        if (date.getDay() + 1 > 6){
+            day = weekdays[0];
+        }
+        else{
+            day = weekdays[date.getDay() + 1];
+        }
+        date.setDate(date.getDate()+1);
+        console.log(date);
+        writeDay();
+    });
+
+    //delete show when delete button is clicked
+    $(".optionButton").click(function (event) {
         var showID = (event.target.id);
         var check = "deleteShow";
         if (showID.indexOf(check) !== 1){
@@ -154,63 +211,11 @@ $(document).ready(function() {
             console.log("line 152", day);
             removeShow(day, orderNum);
         }
-        // alert(event.target.id);
     });
+
 });
 
 
-function writeDay() {
-    $('#day').empty();
-    $('#day').append(getFullWeekdayName());
-    console.log(getFullWeekdayName());
-    $('#day').append(loadShow());
-
-}
-
-function getPreviousDay(){
-    if (date.getDay() - 1 < 0){
-        day = weekdays[6];
-    }
-    else{
-        day = weekdays[date.getDay() - 1];
-    }
-    date.setDate(date.getDate()-1);
-    console.log(date);
-    writeDay();
-}
-
-function getNextDay(){
-    if (date.getDay() + 1 > 6){
-        day = weekdays[0];
-    }
-    else{
-        day = weekdays[date.getDay() + 1];
-    }
-    date.setDate(date.getDate()+1);
-    console.log(date);
-    writeDay();
-}
-
-function getHome(){
-    var newDate = new Date();
-    day = weekdays[newDate.getDay()];
-    date.setDate(newDate.getDate());
-    // date.getMonth() + 1
-    date.setMonth(newDate.getMonth());
-    console.log(date);
-    writeDay();
-}
-
-var homeButton = document.querySelector('button.home');
-homeButton.addEventListener('click', getHome);
-
-
-var prevButton = document.querySelector('button.previous');
-prevButton.addEventListener('click', getPreviousDay);
-
-var nextButton = document.querySelector('button.next');
-nextButton.addEventListener('click', getNextDay);
-
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function() {
     writeDay();
 });
