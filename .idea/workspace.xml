@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3d0df373-e5eb-4098-ad1e-aa087035667b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/popup.css" afterPath="$PROJECT_DIR$/css/popup.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popup.js" afterPath="$PROJECT_DIR$/popup.js" />
     </list>
     <ignored path="tracker.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -286,7 +284,7 @@
       <workItem from="1471645947585" duration="37193000" />
       <workItem from="1471830006550" duration="9293000" />
       <workItem from="1472076505789" duration="10067000" />
-      <workItem from="1472167408651" duration="12232000" />
+      <workItem from="1472167408651" duration="12241000" />
     </task>
     <task id="LOCAL-00001" summary="Updated TO-DO for Options.js">
       <created>1471830270185</created>
@@ -344,11 +342,18 @@
       <option name="project" value="LOCAL" />
       <updated>1472262725361</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added functions to prev, next, home buttons. TO-DO: Be able to delete shows from the prev/next listings.">
+      <created>1472345255481</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1472345255481</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71217000" />
+    <option name="totallyTimeSpent" value="71226000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="660" y="0" width="1157" height="1090" extended-state="0" />
