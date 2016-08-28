@@ -3,11 +3,11 @@
  */
 
 /*
-TO-DO:
--Sections
--Link to DL
--Option to remove
--Forward/Backward a day
+ TO-DO:
+ -Sections
+ -Link to DL
+ -Option to remove
+ -Forward/Backward a day
  */
 
 //Get weekday
@@ -46,14 +46,6 @@ function seasonLabel(todaysShow){
 
 }
 
-function getFullWeekdayName(){
-    var weekDay = "<h1 id='title'>"
-        + day
-        + " (" + (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear() + ")"
-        + "</h1>";
-    return weekDay;
-}
-
 function loadShow(){
     var table = $('<table>');
 
@@ -65,7 +57,7 @@ function loadShow(){
             console.log("is it empty / results = object???:", typeof results == "object");
             table.append($("<tr id='nothingRow'>" +
                 "<th>" + "You have nothing listed" + "</th>" +
-            "</tr>"));
+                "</tr>"));
         }
         else {
             //otherwise, retrieve all the show inside the array belonging to today's date
@@ -89,15 +81,9 @@ function loadShow(){
                 table.append($("<tr class='showRow'>" +
                     "<td>" + todaysShow[i].nameOfShow + " " + seasonLabel(todaysShow[i]) + "</td>" +
                     "<td>" + "<a href='# class='deleteShow'>" + "TODO" + "</a></td>" +
-                    //    <button class="submit">Save</button>
-                    //var submitButton = document.querySelector('button.submit');
-                    //submitButton.addEventListener('click', saveShow);
-
-                // "<td>" + "<a href='#'" + "class='" + todaysShow[i].day + "' id='" + i + "'>(-)</a></td>" +
-// empty statement:
                     "<td>" + "<a href='#' id='" + "deleteShow" + i + todaysShow[i].day + "'>(-)</a></td>" +
                     "</tr>"));
-                    console.log("deleteShow" + i);
+                console.log("deleteShow" + i);
             }
         }
     }));
@@ -228,4 +214,3 @@ nextButton.addEventListener('click', getNextDay);
 document.addEventListener('DOMContentLoaded', function () {
     writeDay();
 });
-
