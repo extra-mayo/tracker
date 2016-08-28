@@ -39,8 +39,8 @@
       <file leaf-file-name="popup.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/popup.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+            <state relative-caret-position="100">
+              <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -49,7 +49,7 @@
       <file leaf-file-name="popup.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/popup.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
+            <state relative-caret-position="850">
               <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
               <folding />
             </state>
@@ -285,7 +285,7 @@
       <workItem from="1471645947585" duration="37193000" />
       <workItem from="1471830006550" duration="9293000" />
       <workItem from="1472076505789" duration="10067000" />
-      <workItem from="1472167408651" duration="16409000" />
+      <workItem from="1472167408651" duration="16657000" />
     </task>
     <task id="LOCAL-00001" summary="Updated TO-DO for Options.js">
       <created>1471830270185</created>
@@ -371,11 +371,18 @@
       <option name="project" value="LOCAL" />
       <updated>1472349256723</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Update doc">
+      <created>1472349446740</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1472349446740</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75394000" />
+    <option name="totallyTimeSpent" value="75642000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="660" y="0" width="1157" height="1090" extended-state="0" />
@@ -441,7 +448,8 @@
     <MESSAGE value="Cleaned up some things; still needs documentation + fix" />
     <MESSAGE value="Tidied + documented some things. Need to fix removal of shows." />
     <MESSAGE value="Fixed the removal of shows issue." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed the removal of shows issue." />
+    <MESSAGE value="Update doc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update doc" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -720,14 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/popup.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/popup.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -736,10 +736,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/popup.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/popup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+        <state relative-caret-position="100">
+          <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
           <folding />
         </state>
       </provider>

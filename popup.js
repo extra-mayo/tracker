@@ -4,6 +4,7 @@
 
 /*
  TO-DO:
+ **! need to increment episode count, find total episode count, etc !**
  -Sections (to be implemented)
  -Link to DL (to be implemented: will be needing https://www.themoviedb.org API)
  -Option to remove [check]
@@ -199,8 +200,9 @@ writeDay();
     });
 
     //delete show when delete button is clicked
-    //uses .on to look for elements on current state of page
-    //the .click looks for elements on initial page
+    //simply put:
+    //use .on to look for elements on current state of page
+    //whereas the .click looks for elements on initial page
     $(document).on("click", ".optionButton",(function (event) {
         var showID = (event.target.id);
         var check = "deleteShow";
