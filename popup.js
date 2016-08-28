@@ -4,10 +4,10 @@
 
 /*
  TO-DO:
- -Sections
- -Link to DL
- -Option to remove
- -Forward/Backward a day
+ -Sections (to be implemented)
+ -Link to DL (to be implemented: will be needing https://www.themoviedb.org API)
+ -Option to remove [check]
+ -Forward/Backward a day [check]
  */
 
 //Initiated an array filled with 7 arrays that corresponds to each days of the week.
@@ -199,6 +199,8 @@ writeDay();
     });
 
     //delete show when delete button is clicked
+    //uses .on to look for elements on current state of page
+    //the .click looks for elements on initial page
     $(document).on("click", ".optionButton",(function (event) {
         var showID = (event.target.id);
         var check = "deleteShow";
@@ -215,7 +217,3 @@ writeDay();
 
 });
 
-
-// document.addEventListener("DOMContentLoaded", function() {
-//     writeDay();
-// });
