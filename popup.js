@@ -163,7 +163,7 @@ function writeDay() {
 
 //Writes in the popup content when document is loaded.
 $(function(){
-
+writeDay();
     $("#home").click(function(){
         var newDate = new Date();
         day = weekdays[newDate.getDay()];
@@ -199,7 +199,7 @@ $(function(){
     });
 
     //delete show when delete button is clicked
-    $(".optionButton").click(function (event) {
+    $(document).on("click", ".optionButton",(function (event) {
         var showID = (event.target.id);
         var check = "deleteShow";
         if (showID.indexOf(check) !== 1){
@@ -211,11 +211,11 @@ $(function(){
             console.log("line 152", day);
             removeShow(day, orderNum);
         }
-    });
+    }));
 
 });
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    writeDay();
-});
+// document.addEventListener("DOMContentLoaded", function() {
+//     writeDay();
+// });
