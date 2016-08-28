@@ -6,7 +6,8 @@
  TO-DO:
  **! need to increment episode count, find total episode count, etc !**
  -Sections (to be implemented)
- -Link to DL (to be implemented: will be needing https://www.themoviedb.org API)
+ -Link to DL (to be implemented: will be needing https://www.themoviedb.org/documentation/api)
+ -Option to move shows up / down
  -Option to remove [check]
  -Forward/Backward a day [check]
  */

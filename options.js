@@ -95,20 +95,14 @@ function saveShow(){
 
                 });
             }));
-            //
-            // weekDays[convertDayToNumber(newShow.day)].push(newShow);
-            // console.log("day is converted to " + convertDayToNumber(newShow.day));
-            // console.log( weekDays[convertDayToNumber(newShow.day)]);
         }
-
     }
-    //
-    // chrome.storage.sync.set({"schedule": weekDays}, function() {
-    //     // Notify that we saved.
-    //     alert('Settings saved');
-    //     console.log(newShow);
-    // });
-}
-var submitButton = document.querySelector('button.submit');
-submitButton.addEventListener('click', saveShow);
 
+}
+
+
+$(function(){
+    $("#submit").click(function(){
+        saveShow();
+    });
+});
