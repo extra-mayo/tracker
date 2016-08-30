@@ -89,8 +89,10 @@ function loadShow(){
             for (i = 0; i < todaysShow.length; i++) {
                 table.append($("<tr class='showRow'>" +
                     "<td>" + todaysShow[i].nameOfShow + " " + seasonLabel(todaysShow[i]) + "</td>" +
-                    "<td>" + "<a href='# class='link'>" + "TODO" + "</a></td>" +
-                    "<td>" + "<button class='optionButton' id='" + "deleteShow" + i + todaysShow[i].day + "'>delete</button></td>" +
+                    "<td>" + "<button class='link' id='" + "IMDb" + i + todaysShow[i].day +"'>IMDb</button></td>" +
+                    "<td>" + "<button class='optionButton' id='" + "deleteShow" + i + todaysShow[i].day + "'>delete</button> " +
+                    "<button class='optionButton' id='" + "moveUp" + i + todaysShow[i].day + "'>up</button> " +
+                   "<button class='optionButton' id='" + "moveDown" + i + todaysShow[i].day + "'>down</button></td>" +
                     "</tr>"));
             }
         }
@@ -129,8 +131,6 @@ function convertDayToNumber(day){
 
 }
 
-
-
 /*
     to remove show, you'll need the Day and the order number. Note: order # starts from 0.
     For example, On Wednesday, you'd have Suits, Scream Queen, OUAT.
@@ -151,7 +151,48 @@ function removeShow(day, orderNum){
         });
     }));
     window.location.reload();
+}
 
+function moveShowUp(day, orderNum){
+    chrome.storage.sync.get("schedule", (function(results){
+        var todaysShow = results.schedule[day];
+        console.log("todays Show", todaysShow);
+        if (orderNum == 0){
+            return;
+        }
+        else {
+            var top = todaysShow[orderNum];
+            todaysShow[orderNum] = todaysShow[orderNum-1];
+            todaysShow[orderNum-1] = top;
+        }
+        console.log("After removing: ", todaysShow);
+        chrome.storage.sync.set({"schedule": results.schedule}, function() {
+            // Notify that we saved.
+            console.log('Settings saved');
+        });
+    }));
+    window.location.reload();
+}
+
+function moveShowDown(day, orderNum){
+    chrome.storage.sync.get("schedule", (function(results){
+        var todaysShow = results.schedule[day];
+        console.log("todays Show", todaysShow);
+        if (orderNum == todaysShow.length-1){
+            return;
+        }
+        else {
+            var bottom = todaysShow[orderNum];
+            todaysShow[orderNum] = todaysShow[Number(orderNum)+1];
+            todaysShow[Number(orderNum)+1] = bottom;
+        }
+        console.log("After removing: ", todaysShow);
+        chrome.storage.sync.set({"schedule": results.schedule}, function() {
+            // Notify that we saved.
+            console.log('Settings saved');
+        });
+    }));
+    window.location.reload();
 }
 
 function writeDay() {
@@ -162,10 +203,44 @@ function writeDay() {
 
 }
 
+function writeIMDB(day, orderNum){
+    chrome.storage.sync.get("schedule", (function(results){
+        var todaysShow = results.schedule[day];
+        console.log("line 290!", todaysShow);
+        $.getJSON('http://api.themoviedb.org/3/search/tv?query=' + encodeURI(todaysShow[orderNum].nameOfShow) + '&api_key=d36b5dfe48c8495b015dda1089770746').then(function(searchResult){
+            console.log("search result",searchResult);
+            var showID = searchResult.results[0].id;
+            $.getJSON('http://api.themoviedb.org/3/tv/' + showID + '/external_ids?api_key=d36b5dfe48c8495b015dda1089770746').then(function(showResult){
+                var imdbID = showResult.imdb_id;
+                var imdbLink = 'http://www.imdb.com/title/' + imdbID;
+                $("#IMDb" + orderNum + day).attr("href", imdbLink);
+            });
+        });
+
+    }));
+    window.location.reload();
+
+
+//todaysShow[orderNum].nameOfShow
+
+
+    //http://api.themoviedb.org/3/tv/37680/external_ids?id=37680&api_key=d36b5dfe48c8495b015dda1089770746
+    //
+    // $.getJSON('http://api.themoviedb.org/3/tv/' + showID + '/external_ids?api_key=d36b5dfe48c8495b015dda1089770746').then(function(showResult){
+    //     imdbID = showResult.imdb_id;
+    // });
+
+    // var imdbLink = 'http://www.imdb.com/title/' + imdbID;
+    // return imdbLink;
+}
+
+
+
+
 
 //Writes in the popup content when document is loaded.
 $(function(){
-writeDay();
+    writeDay();
     $("#home").click(function(){
         var newDate = new Date();
         day = weekdays[newDate.getDay()];
@@ -206,8 +281,10 @@ writeDay();
     //whereas the .click looks for elements on initial page
     $(document).on("click", ".optionButton",(function (event) {
         var showID = (event.target.id);
-        var check = "deleteShow";
-        if (showID.indexOf(check) !== 1){
+        var deleteShow = "deleteShow";
+        var moveUp = "moveUp";
+        var moveDown = "moveDown";
+        if (showID.indexOf(deleteShow) == 0){
             var orderNum = showID.substring(10, 11);
             console.log(orderNum);
             var weekday = showID.substring(11);
@@ -216,6 +293,27 @@ writeDay();
             console.log("line 152", day);
             removeShow(day, orderNum);
         }
+        else if (showID.indexOf(moveUp) == 0){
+            var orderNum = showID.substring(6, 7);
+            var weekday = showID.substring(7);
+            var day = convertDayToNumber(weekday);
+            moveShowUp(day, orderNum);
+        }
+        else if (showID.indexOf(moveDown) == 0){
+            var orderNum = showID.substring(8, 9);
+            var weekday = showID.substring(9);
+            var day = convertDayToNumber(weekday);
+            moveShowDown(day, orderNum);
+        }
+    }));
+
+    $(document).on("click", ".link", (function(event){
+        var showID = (event.target.id);
+        var orderNum = showID.substring(4, 5);
+        var day = showID.substring(5);
+        console.log("link info" + day + orderNum);
+        writeIMDB(day, orderNum);
+
     }));
 
 });

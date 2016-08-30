@@ -11,22 +11,22 @@
 
 
 //initiate new array variables for each weekdays
-    var Sunday = [],
-        Monday = [],
-        Tuesday = [],
-        Wednesday = [],
-        Thursday = [],
-        Friday = [],
-        Saturday = [];
+var Sunday = [],
+    Monday = [],
+    Tuesday = [],
+    Wednesday = [],
+    Thursday = [],
+    Friday = [],
+    Saturday = [];
 
 //store the weekdays into an array
-    var weekDays = [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday];
+var weekDays = [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday];
 
 //store the array of weekdays into chrome storage
-    chrome.storage.sync.set({"schedule": weekDays}, function() {
+chrome.storage.sync.set({"schedule": weekDays}, function() {
         // Notify that we saved.
         console.log("initial empty weekday saved into storage");
-    });
+   });
 
 
 
