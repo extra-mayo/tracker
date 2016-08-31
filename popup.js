@@ -89,7 +89,7 @@ function loadShow(){
             for (i = 0; i < todaysShow.length; i++) {
                 table.append($("<tr class='showRow'>" +
                     "<td>" + todaysShow[i].nameOfShow + " " + seasonLabel(todaysShow[i]) + "</td>" +
-                    "<td>" + "<button class='link' id='" + "IMDb" + i + todaysShow[i].day +"'>IMDb</button></td>" +
+                    "<td>" + "<button class='link' id='" + "IMDb" + todaysShow[i].nameOfShow +"'>IMDb</button></td>" +
                     "<td>" + "<button class='optionButton' id='" + "deleteShow" + i + todaysShow[i].day + "'>delete</button> " +
                     "<button class='optionButton' id='" + "moveUp" + i + todaysShow[i].day + "'>up</button> " +
                    "<button class='optionButton' id='" + "moveDown" + i + todaysShow[i].day + "'>down</button></td>" +
@@ -203,23 +203,14 @@ function writeDay() {
 
 }
 
-function writeIMDB(day, orderNum){
-    chrome.storage.sync.get("schedule", (function(results){
-        var todaysShow = results.schedule[day];
-        console.log("line 290!", todaysShow);
-        $.getJSON('http://api.themoviedb.org/3/search/tv?query=' + encodeURI(todaysShow[orderNum].nameOfShow) + '&api_key=d36b5dfe48c8495b015dda1089770746').then(function(searchResult){
-            console.log("search result",searchResult);
-            var showID = searchResult.results[0].id;
-            $.getJSON('http://api.themoviedb.org/3/tv/' + showID + '/external_ids?api_key=d36b5dfe48c8495b015dda1089770746').then(function(showResult){
-                var imdbID = showResult.imdb_id;
-                var imdbLink = 'http://www.imdb.com/title/' + imdbID;
-                $("#IMDb" + orderNum + day).attr("href", imdbLink);
-            });
+
+function getIMDB(nameOfShow){
+    $.getJSON('http://omdbapi.com/?s=' + encodeURI(nameOfShow)).then(function(searchResult){
+            console.log("search result",searchResult.Search.imdbID);
+            var showID = searchResult.Search[0].imdbID;
+            var imdbLink = 'http://www.imdb.com/title/' + showID;
+            chrome.tabs.create({"url": imdbLink});
         });
-
-    }));
-    window.location.reload();
-
 
 //todaysShow[orderNum].nameOfShow
 
@@ -233,10 +224,6 @@ function writeIMDB(day, orderNum){
     // var imdbLink = 'http://www.imdb.com/title/' + imdbID;
     // return imdbLink;
 }
-
-
-
-
 
 //Writes in the popup content when document is loaded.
 $(function(){
@@ -308,12 +295,9 @@ $(function(){
     }));
 
     $(document).on("click", ".link", (function(event){
-        var showID = (event.target.id);
-        var orderNum = showID.substring(4, 5);
-        var day = showID.substring(5);
-        console.log("link info" + day + orderNum);
-        writeIMDB(day, orderNum);
-
+        var event = event.target.id;
+        var nameOfShow = event.substring(4);
+        getIMDB(nameOfShow);
     }));
 
 });
