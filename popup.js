@@ -91,8 +91,9 @@ function loadShow(){
                     "<td>" + todaysShow[i].nameOfShow + " " + seasonLabel(todaysShow[i]) + "</td>" +
                     "<td>" + "<button class='link' id='" + "IMDb" + todaysShow[i].nameOfShow +"'>IMDb</button></td>" +
                     "<td>" + "<button class='optionButton' id='" + "deleteShow" + i + todaysShow[i].day + "'>delete</button> " +
-                    "<button class='optionButton' id='" + "moveUp" + i + todaysShow[i].day + "'>up</button> " +
-                   "<button class='optionButton' id='" + "moveDown" + i + todaysShow[i].day + "'>down</button></td>" +
+                    "<button class='optionButton' id='" + "moveUp" + i + todaysShow[i].day + "'>↑</button> " +
+                   "<button class='optionButton' id='" + "moveDown" + i + todaysShow[i].day + "'>↓</button> " +
+                    "<button class='optionButton' id='" + "edit" + i + todaysShow[i].day + "'>edit</button></td>" +
                     "</tr>"));
             }
         }
@@ -224,6 +225,11 @@ function getIMDB(nameOfShow){
     // var imdbLink = 'http://www.imdb.com/title/' + imdbID;
     // return imdbLink;
 }
+
+/*
+EDIT function: option to change all the properties of the show
+ */
+
 
 //Writes in the popup content when document is loaded.
 $(function(){
