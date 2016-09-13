@@ -268,6 +268,11 @@ $(function(){
         writeDay();
     });
 
+    $("#edit").click(function(){
+
+        //display page?
+    });
+
     //delete show when delete button is clicked
     //simply put:
     //use .on to look for elements on current state of page
